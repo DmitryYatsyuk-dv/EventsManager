@@ -8,6 +8,7 @@
 import UIKit
 
 class EventListViewController: UIViewController {
+    
     //MARK: - Properties
     static func instantiate() -> EventListViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
@@ -36,7 +37,7 @@ class EventListViewController: UIViewController {
         let navigationTitle = "Events"
         title = navigationTitle
         navigationController?.navigationBar.prefersLargeTitles = true
-
+        
     }
     
     private func setRightBarButton() {

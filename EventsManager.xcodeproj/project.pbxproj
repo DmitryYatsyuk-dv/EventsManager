@@ -12,11 +12,12 @@
 		32402A8C277BA713004CDDE5 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32402A8B277BA713004CDDE5 /* UIColor+Extension.swift */; };
 		32AF21C2277B85FF0070FB01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AF21C1277B85FF0070FB01 /* AppDelegate.swift */; };
 		32AF21C4277B85FF0070FB01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AF21C3277B85FF0070FB01 /* SceneDelegate.swift */; };
-		32AF21C6277B85FF0070FB01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AF21C5277B85FF0070FB01 /* ViewController.swift */; };
 		32AF21C9277B85FF0070FB01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32AF21C7277B85FF0070FB01 /* Main.storyboard */; };
 		32AF21CB277B86000070FB01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32AF21CA277B86000070FB01 /* Assets.xcassets */; };
 		32AF21CE277B86000070FB01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32AF21CC277B86000070FB01 /* LaunchScreen.storyboard */; };
 		32AF21D7277B861A0070FB01 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AF21D6277B861A0070FB01 /* AppCoordinator.swift */; };
+		32EE9EA027832BBB00AF0CC1 /* EventsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 32EE9E9E27832BBB00AF0CC1 /* EventsApp.xcdatamodeld */; };
+		32EE9EA327832CC200AF0CC1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EE9EA227832CC200AF0CC1 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,12 +27,13 @@
 		32AF21BE277B85FF0070FB01 /* EventsManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventsManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32AF21C1277B85FF0070FB01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32AF21C3277B85FF0070FB01 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		32AF21C5277B85FF0070FB01 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		32AF21C8277B85FF0070FB01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		32AF21CA277B86000070FB01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32AF21CD277B86000070FB01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32AF21CF277B86000070FB01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32AF21D6277B861A0070FB01 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		32EE9E9F27832BBB00AF0CC1 /* EventsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EventsApp.xcdatamodel; sourceTree = "<group>"; };
+		32EE9EA227832CC200AF0CC1 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,17 +68,42 @@
 			children = (
 				32AF21C1277B85FF0070FB01 /* AppDelegate.swift */,
 				32AF21C3277B85FF0070FB01 /* SceneDelegate.swift */,
-				32AF21C5277B85FF0070FB01 /* ViewController.swift */,
+				32EE9EA7278331B200AF0CC1 /* Coordinators */,
+				32EE9EA6278331A400AF0CC1 /* Extensions */,
+				32EE9EA52783319E00AF0CC1 /* Controllers */,
 				32AF21C7277B85FF0070FB01 /* Main.storyboard */,
 				32AF21CA277B86000070FB01 /* Assets.xcassets */,
 				32AF21CC277B86000070FB01 /* LaunchScreen.storyboard */,
 				32AF21CF277B86000070FB01 /* Info.plist */,
-				32AF21D6277B861A0070FB01 /* AppCoordinator.swift */,
-				32402A81277B9C06004CDDE5 /* EventListCoordinator.swift */,
-				32402A85277B9FB7004CDDE5 /* EventListViewController.swift */,
-				32402A8B277BA713004CDDE5 /* UIColor+Extension.swift */,
+				32EE9E9E27832BBB00AF0CC1 /* EventsApp.xcdatamodeld */,
+				32EE9EA227832CC200AF0CC1 /* CoreDataManager.swift */,
 			);
 			path = EventsManager;
+			sourceTree = "<group>";
+		};
+		32EE9EA52783319E00AF0CC1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				32402A85277B9FB7004CDDE5 /* EventListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		32EE9EA6278331A400AF0CC1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				32402A8B277BA713004CDDE5 /* UIColor+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		32EE9EA7278331B200AF0CC1 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				32AF21D6277B861A0070FB01 /* AppCoordinator.swift */,
+				32402A81277B9C06004CDDE5 /* EventListCoordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,8 +179,9 @@
 				32402A8C277BA713004CDDE5 /* UIColor+Extension.swift in Sources */,
 				32AF21D7277B861A0070FB01 /* AppCoordinator.swift in Sources */,
 				32402A86277B9FB7004CDDE5 /* EventListViewController.swift in Sources */,
-				32AF21C6277B85FF0070FB01 /* ViewController.swift in Sources */,
+				32EE9EA027832BBB00AF0CC1 /* EventsApp.xcdatamodeld in Sources */,
 				32AF21C2277B85FF0070FB01 /* AppDelegate.swift in Sources */,
+				32EE9EA327832CC200AF0CC1 /* CoreDataManager.swift in Sources */,
 				32AF21C4277B85FF0070FB01 /* SceneDelegate.swift in Sources */,
 				32402A82277B9C06004CDDE5 /* EventListCoordinator.swift in Sources */,
 			);
@@ -357,6 +385,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		32EE9E9E27832BBB00AF0CC1 /* EventsApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				32EE9E9F27832BBB00AF0CC1 /* EventsApp.xcdatamodel */,
+			);
+			currentVersion = 32EE9E9F27832BBB00AF0CC1 /* EventsApp.xcdatamodel */;
+			path = EventsApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 32AF21B6277B85FF0070FB01 /* Project object */;
 }
