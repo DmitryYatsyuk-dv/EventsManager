@@ -13,7 +13,7 @@ protocol CoordinatorProtocol {
 }
 
 final class AppCoordinator: CoordinatorProtocol {
-    
+
     private(set) var childCoordinators: [CoordinatorProtocol] = []
     private let window: UIWindow
     
