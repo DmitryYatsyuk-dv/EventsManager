@@ -10,7 +10,12 @@ import UIKit
 class EventListViewController: UIViewController {
     
     //MARK: - Properties
-    var viewModel: EventListViewModel!
+    static func instantiate() -> EventListViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        let controller = storyboard.instantiateViewController(identifier: "EventListViewController") as! EventListViewController
+        
+        return controller
+    }
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -22,26 +27,27 @@ class EventListViewController: UIViewController {
     }
     //MARK: - Actions
     @objc
-    private func tappedAddEventButton() {
-        viewModel.tappedAddEvent()
+    private func tappedRightBarButton() {
+        print("DEBUG: Tapped right bar button")
     }
     
     //MARK: - Helpers
     
     private func setNavigationTitle() {
-        navigationItem.title = viewModel.title
+        let navigationTitle = "Events"
+        title = navigationTitle
         navigationController?.navigationBar.prefersLargeTitles = true
+        
     }
     
     private func setRightBarButton() {
-        guard let image = UIImage(systemName: "plus.app.fill") else { return }
-        
+        let image = UIImage(systemName: "plus.square.fill")
         let barButtonItem = UIBarButtonItem(image: image,
                                             style: .plain,
                                             target: self,
-                                            action: #selector(tappedAddEventButton))
-        
+                                            action: #selector(tappedRightBarButton))
         barButtonItem.tintColor = UIColor.primary
         navigationItem.rightBarButtonItem = barButtonItem
+        
     }
 }
