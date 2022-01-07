@@ -21,6 +21,8 @@
 		32AF21CB277B86000070FB01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32AF21CA277B86000070FB01 /* Assets.xcassets */; };
 		32AF21CE277B86000070FB01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32AF21CC277B86000070FB01 /* LaunchScreen.storyboard */; };
 		32AF21D7277B861A0070FB01 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AF21D6277B861A0070FB01 /* AppCoordinator.swift */; };
+		32C68508278869EE008E7516 /* TitleSubtitleCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C68507278869EE008E7516 /* TitleSubtitleCellViewModel.swift */; };
+		32C6850C27886A3A008E7516 /* TitleSubtitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C6850B27886A3A008E7516 /* TitleSubtitleCell.swift */; };
 		32EE9EA027832BBB00AF0CC1 /* EventsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 32EE9E9E27832BBB00AF0CC1 /* EventsApp.xcdatamodeld */; };
 		32EE9EA327832CC200AF0CC1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EE9EA227832CC200AF0CC1 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +44,8 @@
 		32AF21CD277B86000070FB01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32AF21CF277B86000070FB01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32AF21D6277B861A0070FB01 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		32C68507278869EE008E7516 /* TitleSubtitleCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSubtitleCellViewModel.swift; sourceTree = "<group>"; };
+		32C6850B27886A3A008E7516 /* TitleSubtitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSubtitleCell.swift; sourceTree = "<group>"; };
 		32EE9E9F27832BBB00AF0CC1 /* EventsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EventsApp.xcdatamodel; sourceTree = "<group>"; };
 		32EE9EA227832CC200AF0CC1 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,6 +66,7 @@
 			children = (
 				32529C232788414500BAAB0D /* AddEventViewModel.swift */,
 				3203555027883C0B00F8E35E /* EventListViewModel.swift */,
+				32C68507278869EE008E7516 /* TitleSubtitleCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -85,6 +90,7 @@
 		32AF21C0277B85FF0070FB01 /* EventsManager */ = {
 			isa = PBXGroup;
 			children = (
+				32C6850A27886A1D008E7516 /* Views */,
 				32529C26278853D700BAAB0D /* ViewModels */,
 				32EE9EA6278331A400AF0CC1 /* Extensions */,
 				32EE9EA52783319E00AF0CC1 /* Controllers */,
@@ -99,6 +105,14 @@
 				32EE9EA227832CC200AF0CC1 /* CoreDataManager.swift */,
 			);
 			path = EventsManager;
+			sourceTree = "<group>";
+		};
+		32C6850A27886A1D008E7516 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				32C6850B27886A3A008E7516 /* TitleSubtitleCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		32EE9EA52783319E00AF0CC1 /* Controllers */ = {
@@ -199,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32C68508278869EE008E7516 /* TitleSubtitleCellViewModel.swift in Sources */,
 				32529C212788407000BAAB0D /* UIViewController+Extension.swift in Sources */,
 				32402A8C277BA713004CDDE5 /* UIColor+Extension.swift in Sources */,
 				32AF21D7277B861A0070FB01 /* AppCoordinator.swift in Sources */,
@@ -210,6 +225,7 @@
 				32EE9EA327832CC200AF0CC1 /* CoreDataManager.swift in Sources */,
 				32529C1E2788400800BAAB0D /* AddEventViewController.swift in Sources */,
 				3203555127883C0B00F8E35E /* EventListViewModel.swift in Sources */,
+				32C6850C27886A3A008E7516 /* TitleSubtitleCell.swift in Sources */,
 				32AF21C4277B85FF0070FB01 /* SceneDelegate.swift in Sources */,
 				32402A82277B9C06004CDDE5 /* EventListCoordinator.swift in Sources */,
 			);
