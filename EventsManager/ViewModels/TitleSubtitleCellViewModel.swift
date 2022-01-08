@@ -13,6 +13,7 @@ final class TitleSubtitleCellViewModel {
     enum CellType {
         case text
         case data
+        case image
     }
     
     private(set) var subtitle: String

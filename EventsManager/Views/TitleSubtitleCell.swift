@@ -24,6 +24,8 @@ final class TitleSubtitleCell: UITableViewCell {
                         action: #selector(tappedDoneBarButton))
     }()
     
+    private let photoImageView = UIImageView()
+    
     private var viewModel: TitleSubtitleCellViewModel?
     
     //MARK: - Lifecycle
@@ -45,7 +47,7 @@ final class TitleSubtitleCell: UITableViewCell {
         viewModel?.update(datePickerView.date)
     }
     
-    //MARK: - Helpers
+    //MARK: - Update viewModel
     func update(with viewModel: TitleSubtitleCellViewModel) {
         self.viewModel = viewModel
         titleLabel.text = viewModel.title
@@ -54,18 +56,31 @@ final class TitleSubtitleCell: UITableViewCell {
         
         subtitleTextField.inputView = viewModel.type == .text ? nil : datePickerView
         subtitleTextField.inputAccessoryView = viewModel.type == .text ? nil : toolBar
+        
+        photoImageView.isHidden = viewModel.type != .image
+        updatePhotoImageView()
+        
+        subtitleTextField.isHidden = viewModel.type == .image
+        
+        verticalStackView.spacing = viewModel.type == .image ? 15 : verticalStackView.spacing
     }
     
+    //MARK: - Helpers
     private func setupViews() {
         verticalStackView.axis = .vertical
         titleLabel.font = .systemFont(ofSize: 22, weight: .medium)
         subtitleTextField.font = .systemFont(ofSize: 20, weight: .medium)
         
-        [verticalStackView, titleLabel, subtitleTextField]
+        [verticalStackView, titleLabel, subtitleTextField, photoImageView]
             .forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         
         toolBar.setItems([doneButton], animated: false)
         updateDatePicker()
+    }
+    
+    private func updatePhotoImageView() {
+        photoImageView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        photoImageView.layer.cornerRadius = constant
     }
     
     private func updateDatePicker() {
@@ -77,15 +92,22 @@ final class TitleSubtitleCell: UITableViewCell {
         contentView.addSubview(verticalStackView)
         verticalStackView.addArrangedSubview(titleLabel)
         verticalStackView.addArrangedSubview(subtitleTextField)
+        verticalStackView.addArrangedSubview(photoImageView)
     }
     
     //MARK: - Layout
     private func setupLayout() {
+        // StackView
         NSLayoutConstraint.activate([
             verticalStackView.topAnchor.constraint(equalTo: contentView.topAnchor,constant: constant),
             verticalStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: constant),
-            verticalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: constant),
+            verticalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -constant),
             verticalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -constant)
+        ])
+        
+        // PhotoImageView
+        NSLayoutConstraint.activate([
+            photoImageView.heightAnchor.constraint(equalToConstant: 200)
         ])
     }
 }
