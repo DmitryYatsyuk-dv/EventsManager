@@ -8,11 +8,23 @@
 import UIKit
 
 final class TitleSubtitleCell: UITableViewCell {
+   
     //MARK: - Properties
     private let titleLabel = UILabel()
     let subtitleTextField = UITextField()
+    
     private let verticalStackView = UIStackView()
     private let constant: CGFloat = 15
+    
+    private let datePickerView = UIDatePicker()
+    private let toolBar = UIToolbar(frame: .init(x: 0, y: 0, width: 100, height: 100))
+    
+    lazy var doneButton: UIBarButtonItem = {
+        UIBarButtonItem(barButtonSystemItem: .done, target: self,
+                        action: #selector(tappedDoneBarButton))
+    }()
+    
+    private var viewModel: TitleSubtitleCellViewModel?
     
     //MARK: - Lifecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -27,11 +39,21 @@ final class TitleSubtitleCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Actions
+    @objc
+    private func tappedDoneBarButton() {
+        viewModel?.update(datePickerView.date)
+    }
+    
     //MARK: - Helpers
     func update(with viewModel: TitleSubtitleCellViewModel) {
+        self.viewModel = viewModel
         titleLabel.text = viewModel.title
         subtitleTextField.text = viewModel.subtitle
         subtitleTextField.placeholder = viewModel.placeholder
+        
+        subtitleTextField.inputView = viewModel.type == .text ? nil : datePickerView
+        subtitleTextField.inputAccessoryView = viewModel.type == .text ? nil : toolBar
     }
     
     private func setupViews() {
@@ -41,6 +63,14 @@ final class TitleSubtitleCell: UITableViewCell {
         
         [verticalStackView, titleLabel, subtitleTextField]
             .forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        
+        toolBar.setItems([doneButton], animated: false)
+        updateDatePicker()
+    }
+    
+    private func updateDatePicker() {
+        datePickerView.preferredDatePickerStyle = .wheels
+        datePickerView.datePickerMode = .date
     }
     
     private func setupHierarchy() {
@@ -49,6 +79,7 @@ final class TitleSubtitleCell: UITableViewCell {
         verticalStackView.addArrangedSubview(subtitleTextField)
     }
     
+    //MARK: - Layout
     private func setupLayout() {
         NSLayoutConstraint.activate([
             verticalStackView.topAnchor.constraint(equalTo: contentView.topAnchor,constant: constant),
