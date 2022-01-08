@@ -9,6 +9,7 @@ import UIKit
 
 final class AddEventViewModel {
     
+    let title = "Add"
     var onUpdate: () -> Void = {}
     
     enum Cell {
@@ -19,6 +20,8 @@ final class AddEventViewModel {
     private(set) var cells: [Cell] = []
     var coordinator: AddEventCoordinator?
     
+    
+    //MARK: - Helpers
     func viewDidLoad() {
         cells = [
             .titleSubtitle(
@@ -41,6 +44,21 @@ final class AddEventViewModel {
     
     func cell(for indexPath: IndexPath) -> Cell {
         return cells[indexPath.row]
+    }
+    
+    func tappedDone() {
+        print("DEBUG: tapped Done")
+        // extract info from cell view models & save in core data.
+        // tell coordinator to dismiss
+    }
+    
+    func updateCell(indexPath: IndexPath, subtitle: String) {
+        switch cells[indexPath.row] {
+        case .titleSubtitle(let titleSubtitleViewModel):
+            titleSubtitleViewModel.update(subtitle)
+        case .titleImage:
+            break
+        }
     }
     
     //    deinit {

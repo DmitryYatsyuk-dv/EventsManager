@@ -10,7 +10,7 @@ import UIKit
 final class TitleSubtitleCell: UITableViewCell {
     //MARK: - Properties
     private let titleLabel = UILabel()
-    private let subtitleTextField = UITextField()
+    let subtitleTextField = UITextField()
     private let verticalStackView = UIStackView()
     private let constant: CGFloat = 15
     
@@ -39,17 +39,14 @@ final class TitleSubtitleCell: UITableViewCell {
         titleLabel.font = .systemFont(ofSize: 22, weight: .medium)
         subtitleTextField.font = .systemFont(ofSize: 20, weight: .medium)
         
-        [verticalStackView, titleLabel, subtitleTextField].forEach {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-        }
-        
+        [verticalStackView, titleLabel, subtitleTextField]
+            .forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
     }
     
     private func setupHierarchy() {
         contentView.addSubview(verticalStackView)
         verticalStackView.addArrangedSubview(titleLabel)
         verticalStackView.addArrangedSubview(subtitleTextField)
-        
     }
     
     private func setupLayout() {
