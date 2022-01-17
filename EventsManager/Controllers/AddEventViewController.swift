@@ -55,6 +55,7 @@ class AddEventViewController: UIViewController {
     
     private func setupTableView() {
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(TitleSubtitleCell.self, forCellReuseIdentifier: "TitleSubtitleCell")
         tableView.tableFooterView = UIView()
         // to force large title
@@ -83,6 +84,16 @@ extension AddEventViewController: UITableViewDataSource {
     }
 }
 
+//MARK: - UITableViewDelegate
+extension AddEventViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectRow(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
+}
+
+
+//MARK: - UITextFieldDelegate
 extension AddEventViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let currentText = textField.text else { return false }

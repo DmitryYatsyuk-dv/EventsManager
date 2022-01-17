@@ -31,6 +31,14 @@ final class AddEventCoordinator: CoordinatorProtocol {
         parentCoordinator?.childDidFinish(self)
     }
     
+    func showImagePicker() {
+        print("DEBUG: show image picker")
+    }
+    
+    func didFinishPicking(_ image: UIImage) {
+        
+    }
+    
 //    deinit {
 //        print("deinit from AddEventCoordinator")
 //    }
