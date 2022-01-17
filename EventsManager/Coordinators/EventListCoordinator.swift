@@ -38,6 +38,4 @@ final class EventListCoordinator: CoordinatorProtocol {
             childCoordinators.remove(at: index)
         }
     }
-    
-    
 }

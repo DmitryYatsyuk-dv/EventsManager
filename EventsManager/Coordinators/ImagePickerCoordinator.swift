@@ -22,8 +22,6 @@ final class ImagePickerCoordinator: NSObject, CoordinatorProtocol {
         navigationController.present(imagePickerController, animated: true, completion: nil)
          
     }
-    
-    
 }
 
 extension ImagePickerCoordinator: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -32,5 +30,6 @@ extension ImagePickerCoordinator: UIImagePickerControllerDelegate, UINavigationC
         if let image = info[.originalImage] as? UIImage {
             parentCoordinator?.didFinishPicking(image)
         }
+        parentCoordinator?.childDidFinish(self)
     }
 }

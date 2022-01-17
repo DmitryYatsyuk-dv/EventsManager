@@ -5,7 +5,7 @@
 //  Created by Lucky on 07.01.2022.
 //
 
-import Foundation
+import UIKit
 
 final class TitleSubtitleCellViewModel {
     
@@ -27,6 +27,7 @@ final class TitleSubtitleCellViewModel {
         return dateFormatter
     }()
     
+    private(set) var image: UIImage?
     private(set) var onCellUpdate: () -> Void = {}
     
     
@@ -48,6 +49,11 @@ final class TitleSubtitleCellViewModel {
         let dateString = dateFormatter.string(from: date)
         self.subtitle = dateString
         // reload cell
+        onCellUpdate()
+    }
+    
+    func update(_ image: UIImage) {
+        self.image = image
         onCellUpdate()
     }
 }

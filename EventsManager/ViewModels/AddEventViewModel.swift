@@ -9,6 +9,7 @@ import UIKit
 
 final class AddEventViewModel {
     
+    //MARK: - Properties
     let title = "Add"
     var onUpdate: () -> Void = {}
     
@@ -19,36 +20,13 @@ final class AddEventViewModel {
     private(set) var cells: [Cell] = []
     var coordinator: AddEventCoordinator?
     
+    private var nameCellViewModel: TitleSubtitleCellViewModel?
+    private var dateCellViewModel: TitleSubtitleCellViewModel?
+    private var backgroundImageCellViewModel: TitleSubtitleCellViewModel?
     
-    //MARK: - Helpers
+    //MARK: - Lifecycle
     func viewDidLoad() {
-        cells = [
-            .titleSubtitle(
-                TitleSubtitleCellViewModel(title: "Name",
-                                           subtitle: "",
-                                           placeholder: "Add a name",
-                                           type: .text,
-                                           onCellUpdate: {})
-            ),
-            .titleSubtitle(
-                TitleSubtitleCellViewModel(title: "Date",
-                                           subtitle: "",
-                                           placeholder: "Select a date",
-                                           type: .data,
-                                           onCellUpdate: { [weak self] in
-                                            self?.onUpdate()
-                                           })
-            ),
-            .titleSubtitle(
-                TitleSubtitleCellViewModel(title: "Background",
-                                           subtitle: "",
-                                           placeholder: "",
-                                           type: .image,
-                                           onCellUpdate: { [weak self] in
-                                            self?.onUpdate()
-                                           })
-            )
-        ]
+        setupCells()
         onUpdate()
     }
     
@@ -56,6 +34,7 @@ final class AddEventViewModel {
         coordinator?.didFinishAddEvent()
     }
     
+    //MARK: - Helpers
     func numberOfRows() -> Int {
         return cells.count
     }
@@ -77,17 +56,61 @@ final class AddEventViewModel {
         }
     }
     
-    func didSelectRow(at indexPath: IndexPath) {
+    func  didSelectRow(at indexPath: IndexPath) {
         switch cells[indexPath.row] {
         case .titleSubtitle(let titleSubtitleCellViewModel):
             guard titleSubtitleCellViewModel.type == .image else {
                 return
             }
-            coordinator?.showImagePicker()
+            coordinator?.showImagePicker { image in
+                titleSubtitleCellViewModel.update(image)
+            }
         }
     }
-    
     //    deinit {
     //        print("deinit from AddEventViewModel")
     //    }
+}
+
+private extension AddEventViewModel {
+    func setupCells() {
+        nameCellViewModel = TitleSubtitleCellViewModel(title: "Name",
+                                                       subtitle: "",
+                                                       placeholder: "Add a name",
+                                                       type: .text,
+                                                       onCellUpdate: {})
+        
+        dateCellViewModel = TitleSubtitleCellViewModel(title: "Date",
+                                                       subtitle: "",
+                                                       placeholder: "Select a date",
+                                                       type: .data,
+                                                       onCellUpdate: { [weak self] in
+                                                        self?.onUpdate()
+                                                       })
+        
+        backgroundImageCellViewModel = TitleSubtitleCellViewModel(title: "Background",
+                                                                  subtitle: "",
+                                                                  placeholder: "",
+                                                                  type: .image,
+                                                                  onCellUpdate: { [weak self] in
+                                                                    self?.onUpdate()
+                                                                  })
+        guard
+            let nameCellViewModel = nameCellViewModel,
+            let dateCellViewModel = dateCellViewModel,
+            let backgroundImageCellViewModel = backgroundImageCellViewModel
+        else { return }
+        
+        cells = [
+            .titleSubtitle(
+                nameCellViewModel
+            ),
+            .titleSubtitle(
+                dateCellViewModel
+            ),
+            .titleSubtitle(
+                backgroundImageCellViewModel
+            )
+        ]
+    }
 }

@@ -24,6 +24,7 @@
 		32C68508278869EE008E7516 /* TitleSubtitleCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C68507278869EE008E7516 /* TitleSubtitleCellViewModel.swift */; };
 		32C6850C27886A3A008E7516 /* TitleSubtitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C6850B27886A3A008E7516 /* TitleSubtitleCell.swift */; };
 		32EAC7322795BD7F0030EF43 /* ImagePickerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EAC7312795BD7F0030EF43 /* ImagePickerCoordinator.swift */; };
+		32EAC7352795D3550030EF43 /* EventsCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EAC7342795D3550030EF43 /* EventsCellBuilder.swift */; };
 		32EE9EA027832BBB00AF0CC1 /* EventsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 32EE9E9E27832BBB00AF0CC1 /* EventsApp.xcdatamodeld */; };
 		32EE9EA327832CC200AF0CC1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EE9EA227832CC200AF0CC1 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		32C68507278869EE008E7516 /* TitleSubtitleCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSubtitleCellViewModel.swift; sourceTree = "<group>"; };
 		32C6850B27886A3A008E7516 /* TitleSubtitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSubtitleCell.swift; sourceTree = "<group>"; };
 		32EAC7312795BD7F0030EF43 /* ImagePickerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCoordinator.swift; sourceTree = "<group>"; };
+		32EAC7342795D3550030EF43 /* EventsCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCellBuilder.swift; sourceTree = "<group>"; };
 		32EE9E9F27832BBB00AF0CC1 /* EventsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EventsApp.xcdatamodel; sourceTree = "<group>"; };
 		32EE9EA227832CC200AF0CC1 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +107,7 @@
 				32AF21CF277B86000070FB01 /* Info.plist */,
 				32EE9E9E27832BBB00AF0CC1 /* EventsApp.xcdatamodeld */,
 				32EE9EA227832CC200AF0CC1 /* CoreDataManager.swift */,
+				32EAC7342795D3550030EF43 /* EventsCellBuilder.swift */,
 			);
 			path = EventsManager;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				32529C1B27883DFF00BAAB0D /* AddEventCoordinator.swift in Sources */,
 				32EE9EA327832CC200AF0CC1 /* CoreDataManager.swift in Sources */,
 				32529C1E2788400800BAAB0D /* AddEventViewController.swift in Sources */,
+				32EAC7352795D3550030EF43 /* EventsCellBuilder.swift in Sources */,
 				3203555127883C0B00F8E35E /* EventListViewModel.swift in Sources */,
 				32EAC7322795BD7F0030EF43 /* ImagePickerCoordinator.swift in Sources */,
 				32C6850C27886A3A008E7516 /* TitleSubtitleCell.swift in Sources */,
